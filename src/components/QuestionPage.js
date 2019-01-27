@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { handleAnswerQuestion } from '../actions/questions'
@@ -36,6 +36,9 @@ class QuestionPage extends Component {
         // const id = this.props.match.params['id']
         // const question = questions[id]
         // const users = this.props.users
+        if (!question) {
+            return <Redirect to='/notfound' />
+        }
         const authedUserObject = users[authedUser]
         const numOfOptionOneVotes = question.optionOne.votes.length
         const numOfOptionTwoVotes = question.optionTwo.votes.length
@@ -65,12 +68,12 @@ class QuestionPage extends Component {
                             <div className={authedUserObject.answers[id] === 'optionOne' ? 'bg-green padding' : 'border-1 padding'}>
                                 <p>{question.optionOne.text}</p>
                                 <h6 className='margin-2'>{numOfOptionOneVotes + 'votes'}</h6>
-                                <h6 className='margin-2'>{Math.floor(numOfOptionOneVotes / numOfVotes * 100) + '% of people chosed this answer'} </h6>
+                                <h6 className='margin-2'>{Math.round(numOfOptionOneVotes / numOfVotes * 100) + '% of people chosed this answer'} </h6>
                             </div>
                             <div className={authedUserObject.answers[id] === 'optionTwo' ? 'bg-green padding margin-top' : 'border-1 padding margin-top'}>
                                 <p>{question.optionTwo.text}</p>
                                 <h6 className='margin-2'>{numOfOptionTwoVotes + 'votes'}</h6>
-                                <h6 className='margin-2'>{Math.floor(numOfOptionTwoVotes / numOfVotes * 100) + '% of people chosed this answer'} </h6>
+                                <h6 className='margin-2'>{Math.round(numOfOptionTwoVotes / numOfVotes * 100) + '% of people chosed this answer'} </h6>
                             </div>
                         </div>}
 
@@ -89,9 +92,10 @@ function mapStateToProps({ authedUser, questions, users }, props) {
     console.log('questions from props', questions)
 
     const question = questions[id]
-    question['optionOneText'] = question.optionOne.text
-    question['optionTwoText'] = question.optionTwo.text
-
+    if (question) {
+        question['optionOneText'] = question.optionOne.text
+        question['optionTwoText'] = question.optionTwo.text
+    }
     return {
         id,
         users,
