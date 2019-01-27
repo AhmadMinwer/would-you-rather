@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { handleAnswerQuestion } from '../actions/questions'
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
