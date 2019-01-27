@@ -6,6 +6,9 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
+## Instalation 
+`npm` has to be installed in your cmd, then you have to clone the reposotory and change your working directory to the place that you cloned the reposotory, then run `npm install` to install all project dependencies and `npm start` to start the server on port `http://localhost:3000/`.
+
 ## Data
 
 There are two types of objects stored in our database:
@@ -98,3 +101,7 @@ Your code will talk to the database via 4 methods:
 ## Contributing
 
 This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+
+## Resources 
+
+fakeAuth object with it's handlers imported from https://tylermcginnis.com/react-router-protected-routes-authentication/
