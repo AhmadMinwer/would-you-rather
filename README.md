@@ -7,7 +7,7 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
 ## Instalation 
-`npm` has to be installed in your cmd, then you have to clone the reposotory and change your working directory to the place that you cloned the reposotory, then run `npm install` and `npm start` to start the react application on `http://localhost:3000/` port.
+`npm` has to be installed in your cmd, then you have to clone the reposotory and change your working directory to the place that you cloned the reposotory, then run `npm install` to install all project dependencies and `npm start` to start the server on port `http://localhost:3000/`.
 
 ## Data
 
